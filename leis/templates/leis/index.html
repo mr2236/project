@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="content" >
+
 
 <!-- Begin Site Title
 ================================================== -->
@@ -63,6 +63,7 @@
            <a href="{% url 'leis:details'  pk=lei_all.id %}" class="list-group-item list-group-item-action">{{lei_all.name}}</a>
         {% endfor %}
         </div>
+</div>
 {% endblock %}
 
 

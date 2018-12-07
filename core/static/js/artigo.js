@@ -47,14 +47,23 @@ function toggleFullScreen() {
  }
 }
 
-// keydown event handler
-document.addEventListener('keydown', function(e) {
- if (e.keyCode == 13 || e.keyCode == 70) { // F or Enter key
-   toggleFullScreen();
- }
-}, false);
+// // keydown event handler
+// document.addEventListener('keydown', function(e) {
+//  if (e.keyCode == 13 || e.keyCode == 70) { // F or Enter key
+//    toggleFullScreen();
+//  }
+// }, false);
 
+document.addEventListener('fullscreenchange', exitHandler);
+document.addEventListener('webkitfullscreenchange', exitHandler);
+document.addEventListener('mozfullscreenchange', exitHandler);
+document.addEventListener('MSFullscreenChange', exitHandler);
 
+function exitHandler() {
+    if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+      toggleFullScreen();
+    }
+}  
 
 
 $("p.artigo").on("dblclick",(function(e){    
